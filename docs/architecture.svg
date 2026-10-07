@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" width="100%" height="100%" style="background:#090d16; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="harnessGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b0f19"/>
+    </linearGradient>
+    <linearGradient id="ecuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141829"/>
+      <stop offset="100%" stop-color="#090d18"/>
+    </linearGradient>
+    
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Title Header -->
+  <text x="480" y="38" text-anchor="middle" fill="#38bdf8" font-size="20" font-weight="800" letter-spacing="1">EV BATTERY MANAGEMENT SYSTEM (BMS) TEST AUTOMATION HARNESS</text>
+  <text x="480" y="60" text-anchor="middle" fill="#94a3b8" font-size="12">Pytest Framework, Virtual CAN Bus Layer, Automotive DTC Diagnostics &amp; HIL Simulation</text>
+
+  <!-- ==================== LEFT: PYTEST TEST HARNESS ==================== -->
+  <rect x="40" y="85" width="410" height="420" rx="10" fill="url(#harnessGrad)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="58" y="98" width="180" height="22" rx="4" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="148" y="113" text-anchor="middle" fill="#60a5fa" font-size="10.5" font-weight="700">PYTEST AUTOMATION ENGINE</text>
+
+  <!-- Fixture & Config Card -->
+  <rect x="58" y="130" width="374" height="65" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="74" y="152" fill="#38bdf8" font-size="12" font-weight="700">conftest.py (Lifecycle &amp; Rig Fixtures)</text>
+  <text x="74" y="172" fill="#94a3b8" font-size="11">Session Setup • Fault Vector Matrix • Dynamic Bus Clear</text>
+
+  <!-- Test Suite Categories -->
+  <g font-family="Consolas, monospace" font-size="11">
+    <!-- Test Category 1 -->
+    <rect x="58" y="205" width="374" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="75" cy="231" r="4.5" fill="#10b981"/>
+    <text x="90" y="226" fill="#f8fafc" font-family="-apple-system, sans-serif" font-weight="600" font-size="12">test_safety_faults.py</text>
+    <text x="90" y="244" fill="#64748b" font-size="10.5">Overvoltage • Undervoltage • Thermal Runaway • Contactor Trip</text>
+
+    <!-- Test Category 2 -->
+    <rect x="58" y="267" width="374" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="75" cy="293" r="4.5" fill="#38bdf8"/>
+    <text x="90" y="288" fill="#f8fafc" font-family="-apple-system, sans-serif" font-weight="600" font-size="12">test_cell_monitoring.py</text>
+    <text x="90" y="306" fill="#64748b" font-size="10.5">16S Cell Imbalance • Pack Aggregates • SoC / SoH Scaling</text>
+
+    <!-- Test Category 3 -->
+    <rect x="58" y="329" width="374" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="75" cy="355" r="4.5" fill="#f59e0b"/>
+    <text x="90" y="350" fill="#f8fafc" font-family="-apple-system, sans-serif" font-weight="600" font-size="12">test_diagnostic_dtc.py</text>
+    <text x="90" y="368" fill="#64748b" font-size="10.5">Freeze-Frame DTCs (0xE001..0xE006) • False-Positive Immunity</text>
+
+    <!-- Test Category 4 -->
+    <rect x="58" y="391" width="374" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="75" cy="417" r="4.5" fill="#a855f7"/>
+    <text x="90" y="412" fill="#f8fafc" font-family="-apple-system, sans-serif" font-weight="600" font-size="12">test_stress_load.py</text>
+    <text x="90" y="430" fill="#64748b" font-size="10.5">High-Rate Burst Load • Bus Timeout Enforcement • Recovery</text>
+  </g>
+
+  <!-- Test Data Injection Source -->
+  <rect x="58" y="453" width="374" height="38" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="74" y="476" fill="#cbd5e1" font-size="11">Data-Driven Source: <tspan fill="#f59e0b" font-weight="700">test_data/fault_injection_vectors.json</tspan></text>
+
+
+  <!-- ==================== CENTER: VIRTUAL CAN BUS (VCAN0) ==================== -->
+  <!-- Top Command Flow (Harness to ECU) -->
+  <path d="M 450 170 L 510 170" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="440" y="152" width="80" height="18" rx="9" fill="#090d16" stroke="#f59e0b" stroke-width="1"/>
+  <text x="480" y="165" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="700">Fault Injection</text>
+
+  <!-- Center CAN Bus Pipe -->
+  <rect x="460" y="215" width="40" height="260" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="480" y="340" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800" transform="rotate(-90 480 340)" letter-spacing="2">VIRTUAL CAN BUS (vcan0)</text>
+
+  <!-- Bottom Telemetry Flow (ECU to Harness) -->
+  <path d="M 510 460 L 450 460" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+  <rect x="440" y="442" width="80" height="18" rx="9" fill="#090d16" stroke="#10b981" stroke-width="1"/>
+  <text x="480" y="455" text-anchor="middle" fill="#10b981" font-size="9" font-weight="700">10 Hz CAN Stream</text>
+
+
+  <!-- ==================== RIGHT: VIRTUAL BMS ECU SIMULATOR ==================== -->
+  <rect x="510" y="85" width="410" height="420" rx="10" fill="url(#ecuGrad)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="528" y="98" width="180" height="22" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="0.8"/>
+  <text x="618" y="113" text-anchor="middle" fill="#34d399" font-size="10.5" font-weight="700">VIRTUAL BMS ECU ENGINE</text>
+
+  <!-- Simulator Core Banner -->
+  <rect x="528" y="130" width="374" height="65" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="544" y="152" fill="#34d399" font-size="12" font-weight="700">bms_simulator.py (HIL ECU Daemon)</text>
+  <text x="544" y="172" fill="#94a3b8" font-size="11">16S Cell Stack • Autonomous Safety Loop • Contactor Driver</text>
+
+  <!-- CAN Message Matrix -->
+  <g font-family="Consolas, monospace" font-size="10.5">
+    <!-- Frame 1 -->
+    <rect x="528" y="205" width="374" height="40" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="542" y="224" fill="#38bdf8" font-weight="700">0x180: BMS_Heartbeat</text>
+    <text x="542" y="238" fill="#64748b">State (Init/Standby/Fault) • Rolling Alive Counter (0..255)</text>
+
+    <!-- Frame 2 -->
+    <rect x="528" y="253" width="374" height="40" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="542" y="272" fill="#38bdf8" font-weight="700">0x181: BMS_PackMetrics</text>
+    <text x="542" y="286" fill="#64748b">Pack Voltage (0.1V) • Current (0.1A) • SoC (0.5%) • SoH (0.5%)</text>
+
+    <!-- Frame 3 -->
+    <rect x="528" y="301" width="374" height="40" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="542" y="320" fill="#38bdf8" font-weight="700">0x182: BMS_CellVoltages</text>
+    <text x="542" y="334" fill="#64748b">Min Cell (mV) • Max Cell (mV) • Min/Max Cell Index • Delta mV</text>
+
+    <!-- Frame 4 -->
+    <rect x="528" y="349" width="374" height="40" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="542" y="368" fill="#38bdf8" font-weight="700">0x183: BMS_Temperatures</text>
+    <text x="542" y="382" fill="#64748b">Min Temp (°C) • Max Temp (°C) • Average Module Temp (°C)</text>
+
+    <!-- Frame 5 -->
+    <rect x="528" y="397" width="374" height="40" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="542" y="416" fill="#f59e0b" font-weight="700">0x184: BMS_Diagnostics</text>
+    <text x="542" y="430" fill="#64748b">Active DTCs (0xE001..0xE006) • Contactor (Open/Closed/Tripped)</text>
+  </g>
+
+  <!-- Safety Interlock Tag -->
+  <rect x="528" y="447" width="374" height="44" rx="6" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1"/>
+  <text x="544" y="466" fill="#c7d2fe" font-size="11" font-weight="700">Autonomous Safety Interlock Engine:</text>
+  <text x="544" y="482" fill="#94a3b8" font-size="10">Trips main contactor immediately if Cell V &gt; 4.25V, V &lt; 2.80V, or Temp &gt; 60°C</text>
+
+
+  <!-- ==================== BOTTOM: CI/CD & ALLURE REPORTING ==================== -->
+  <rect x="40" y="525" width="880" height="135" rx="10" fill="#0c1222" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="58" y="538" width="160" height="20" rx="4" fill="#a855f7" fill-opacity="0.15" stroke="#a855f7" stroke-width="0.8"/>
+  <text x="138" y="552" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="700">CI/CD &amp; TEST VISUALIZATION</text>
+
+  <!-- Bottom Card 1: GitHub Actions -->
+  <rect x="58" y="568" width="260" height="75" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="74" y="590" fill="#f8fafc" font-size="12" font-weight="700">GitHub Actions CI Pipeline</text>
+  <text x="74" y="608" fill="#94a3b8" font-size="10.5">• Triggers on Pull Request &amp; Push</text>
+  <text x="74" y="624" fill="#94a3b8" font-size="10.5">• Headless execution &amp; linting</text>
+
+  <!-- Bottom Card 2: Allure Visual Reports -->
+  <rect x="350" y="568" width="260" height="75" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="366" y="590" fill="#f8fafc" font-size="12" font-weight="700">Allure Enterprise Reporting</text>
+  <text x="366" y="608" fill="#94a3b8" font-size="10.5">• Behavioral test categorization</text>
+  <text x="366" y="624" fill="#94a3b8" font-size="10.5">• Failure logs &amp; execution timeline</text>
+
+  <!-- Bottom Card 3: Zero Hardware Dependency -->
+  <rect x="642" y="568" width="260" height="75" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="658" y="590" fill="#34d399" font-size="12" font-weight="700">Zero Hardware Dependency</text>
+  <text x="658" y="608" fill="#94a3b8" font-size="10.5">• In-memory Virtual CAN transport</text>
+  <text x="658" y="624" fill="#94a3b8" font-size="10.5">• 100% clone-and-run reproducible</text>
+
+</svg>

@@ -1,0 +1,52 @@
+[
+  {
+    "test_id": "TC_SAFETY_001",
+    "description": "Critical Single-Cell Overvoltage Trip",
+    "fault_type": "overvoltage",
+    "cell_index": 3,
+    "injected_value": 4280,
+    "expected_dtc": "CELL_OVER_VOLTAGE",
+    "expected_contactor": "FAULT_TRIPPED",
+    "expected_bms_state": "FAULT"
+  },
+  {
+    "test_id": "TC_SAFETY_002",
+    "description": "Deep Cell Undervoltage Trip",
+    "fault_type": "undervoltage",
+    "cell_index": 7,
+    "injected_value": 2720,
+    "expected_dtc": "CELL_UNDER_VOLTAGE",
+    "expected_contactor": "FAULT_TRIPPED",
+    "expected_bms_state": "FAULT"
+  },
+  {
+    "test_id": "TC_SAFETY_003",
+    "description": "Battery Pack Thermal Runaway / Over-Temperature Trip",
+    "fault_type": "overtemperature",
+    "cell_index": 0,
+    "injected_value": 68,
+    "expected_dtc": "PACK_OVER_TEMPERATURE",
+    "expected_contactor": "FAULT_TRIPPED",
+    "expected_bms_state": "FAULT"
+  },
+  {
+    "test_id": "TC_SAFETY_004",
+    "description": "Pack Overcurrent Short-Circuit Surge",
+    "fault_type": "overcurrent",
+    "cell_index": 0,
+    "injected_value": 350.0,
+    "expected_dtc": "PACK_OVER_CURRENT",
+    "expected_contactor": "FAULT_TRIPPED",
+    "expected_bms_state": "FAULT"
+  },
+  {
+    "test_id": "TC_SAFETY_005",
+    "description": "Cell Voltage Imbalance Warning (Non-Tripping)",
+    "fault_type": "imbalance",
+    "cell_index": 0,
+    "injected_value": 110,
+    "expected_dtc": "CELL_IMBALANCE_WARNING",
+    "expected_contactor": "CLOSED",
+    "expected_bms_state": "DISCHARGING"
+  }
+]

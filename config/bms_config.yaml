@@ -1,0 +1,29 @@
+# EV Battery Management System (BMS) Calibration Thresholds
+bms:
+  pack:
+    cell_count: 16                     # 16S LiFePO4 / NMC Configuration
+    nominal_pack_voltage: 59.2         # Volts
+    capacity_ah: 100.0                 # Ampere-Hours
+
+  voltage_thresholds:
+    cell_nominal: 3.70                 # Volts
+    cell_overvoltage_fault: 4.25       # Volts (Triggers Overvoltage DTC & trip)
+    cell_overvoltage_warning: 4.15     # Volts
+    cell_undervoltage_fault: 2.80      # Volts (Triggers Undervoltage DTC & trip)
+    cell_undervoltage_warning: 3.00    # Volts
+    max_cell_delta_mv: 80.0            # Max allowed imbalance before warning (mV)
+
+  temperature_thresholds:
+    max_charge_temp_c: 45.0            # Celsius
+    max_discharge_temp_c: 60.0         # Celsius (Triggers Overtemp DTC & trip)
+    min_temp_c: -10.0                  # Celsius
+
+  current_thresholds:
+    max_charge_current_a: 100.0        # Amperes
+    max_discharge_current_a: 250.0     # Amperes
+    overcurrent_fault_a: 300.0         # Amperes (Instant contactor open)
+
+  timing:
+    heartbeat_interval_ms: 100         # BMS periodic broadcast (10 Hz)
+    contactor_trip_timeout_ms: 150     # Max allowed latency to open contactors on fault
+    dtc_latch_time_ms: 50              # Minimum persistence time to declare a DTC

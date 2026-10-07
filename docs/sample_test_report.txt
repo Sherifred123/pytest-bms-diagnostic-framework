@@ -1,0 +1,40 @@
+================================================================================
+  PYTEST AUTOMATED EV BMS DIAGNOSTIC & HIL TEST SUITE EXECUTION REPORT
+  Environment: Python 3.12.10 | pytest-9.1.1 | allure-pytest-2.16.2
+================================================================================
+
+$ pytest -v --alluredir=allure-results
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
+cachedir: .pytest_cache
+rootdir: E:\EMBEDDED FILE\LEARNING SOURCE\PRE\ANTIGRAVITY\NOTES\GITHUB_PORTFOLIO_PROJECTS\pytest-bms-diagnostic-framework
+configfile: pytest.ini
+testpaths: tests
+plugins: allure-pytest-2.16.2
+collecting ... collected 13 items
+
+tests/test_bms_handshake.py::test_bms_heartbeat_broadcast PASSED         [  7%]
+tests/test_bms_handshake.py::test_all_mandatory_can_ids_present PASSED   [ 15%]
+tests/test_bms_handshake.py::test_alive_counter_increments PASSED        [ 23%]
+tests/test_cell_monitoring.py::test_pack_voltage_aggregate_accuracy PASSED [ 30%]
+tests/test_cell_monitoring.py::test_cell_extremes_identification PASSED  [ 38%]
+tests/test_cell_monitoring.py::test_temperature_sensor_averaging PASSED  [ 46%]
+tests/test_cell_monitoring.py::test_soc_soh_bounds_and_scaling PASSED    [ 53%]
+tests/test_diagnostic_dtc.py::test_no_false_positive_dtcs_under_nominal PASSED [ 61%]
+tests/test_diagnostic_dtc.py::test_multiple_simultaneous_dtcs PASSED     [ 69%]
+tests/test_safety_faults.py::test_data_driven_fault_injection PASSED     [ 76%]
+tests/test_safety_faults.py::test_fault_clearing_and_system_recovery PASSED [ 84%]
+tests/test_stress_load.py::test_bus_burst_load_stability PASSED          [ 92%]
+tests/test_stress_load.py::test_missing_frame_detection_timeout PASSED   [100%]
+
+============================= 13 passed in 3.39s ==============================
+
+Test Suite Summary:
+  • Handshake & Periodic CAN Heartbeat (0x180..0x184) : 3/3 PASSED
+  • 16S Cell Voltage & Thermal Aggregate Precision   : 4/4 PASSED
+  • Data-Driven Safety Fault Injection & Interlocks  : 2/2 PASSED (5 vectors)
+  • Diagnostic Trouble Code (DTC) Arbitration        : 2/2 PASSED
+  • Asynchronous Bus Stress & Timeout Enforcement    : 2/2 PASSED
+  • Overall Health: 100% GREEN (Zero Flakiness, Zero Hardware Dependency)
+================================================================================

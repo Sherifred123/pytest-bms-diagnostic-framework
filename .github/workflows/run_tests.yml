@@ -1,0 +1,38 @@
+name: EV BMS Test Automation Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  bms-validation:
+    name: Run Pytest BMS Diagnostics & Safety Suites
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute Pytest Suite with Allure Telemetry
+        run: |
+          pytest -v --alluredir=allure-results
+
+      - name: Upload Test Results Artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: bms-test-results
+          path: allure-results/
